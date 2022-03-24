@@ -6,7 +6,7 @@ public class GameManager : Gear
 {
 
     private List<Gear> gearList = new List<Gear>(); // list of gears in scene
-
+    public bool CanZoom = false;
 
     //stop rotating gears based on position of chain
     public void StopRotatingGear()
@@ -50,6 +50,16 @@ public class GameManager : Gear
         {
             gear.ratio = gear.ratio * -1;
         }
+    }
+    
+    //Zoom on object
+    public void ZoomFunctionality()
+    {
+       if(CanZoom == false)
+        {
+            CanZoom = true;
+        }
+       
     }
 
 }

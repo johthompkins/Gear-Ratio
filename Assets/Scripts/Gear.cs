@@ -11,6 +11,8 @@ public class Gear : MonoBehaviour
     public bool isRotating = false; //bool to know if gear is rotating
     public float speed = 10;
 
+    bool IsZoomed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,5 +52,23 @@ public class Gear : MonoBehaviour
         //rotate gear based of ratio
         gameObject.transform.Rotate(0, 0, speed * ratio * Time.deltaTime);
 
+    }
+    private void OnMouseDown()
+    {
+
+        if (gameObject.transform.Find("/EventSystem").GetComponent<GameManager>().CanZoom && !IsZoomed)
+        {
+            Camera.main.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 60);
+            IsZoomed = true;
+            gameObject.transform.Find("/EventSystem").GetComponent<GameManager>().CanZoom = false;
+        }
+        else
+        {
+            Camera.main.transform.position = new Vector3(0, 0, 6.83f);
+            IsZoomed = false;
+        
+        }
+            
+        
     }
 }
