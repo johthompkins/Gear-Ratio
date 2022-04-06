@@ -1,4 +1,4 @@
-# gear Ratio
+# Gear Ratio
 
 -Added new Class Gear.CS that holds the properties of each gear.
 
